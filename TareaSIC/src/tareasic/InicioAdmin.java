@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package tareasic;
-
+import models.*;
+import control.*;
 
 
 /**
@@ -61,7 +62,7 @@ public class InicioAdmin extends javax.swing.JFrame {
             .addGap(0, 33, Short.MAX_VALUE)
         );
 
-        jbcatalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tareasic/book2.png"))); // NOI18N
+        jbcatalogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/book2.png"))); // NOI18N
         jbcatalogo.setText("Catalogo");
         jbcatalogo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbcatalogo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -69,6 +70,11 @@ public class InicioAdmin extends javax.swing.JFrame {
         jbcatalogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbcatalogoMouseClicked(evt);
+            }
+        });
+        jbcatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbcatalogoActionPerformed(evt);
             }
         });
 
@@ -159,10 +165,17 @@ public class InicioAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbcatalogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbcatalogoMouseClicked
-        cataCuentas cc=new cataCuentas();
-        cc.setVisible(true);
+        acuenta ac=new acuenta();
+        ac.setVisible(true);
+        conexion conex=new conexion();
+       
+        acuentacontrol acc=new acuentacontrol(ac,conex.conectar());
         dispose();
     }//GEN-LAST:event_jbcatalogoMouseClicked
+
+    private void jbcatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcatalogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbcatalogoActionPerformed
 
     /**
      * @param args the command line arguments

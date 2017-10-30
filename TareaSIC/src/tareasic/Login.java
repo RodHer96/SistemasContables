@@ -131,6 +131,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Bienvenido "+ usuario);
             ia.setVisible(true);
             dispose();
+            
         }
         
         else{ 
