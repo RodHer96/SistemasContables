@@ -168,8 +168,10 @@ public class InicioAdmin extends javax.swing.JFrame {
         acuenta ac=new acuenta();
         ac.setVisible(true);
         conexion conex=new conexion();
-       
+        
         acuentacontrol acc=new acuentacontrol(ac,conex.conectar());
+        acc.inicializarTabla();
+        acc.consultaInicial();
         dispose();
     }//GEN-LAST:event_jbcatalogoMouseClicked
 

@@ -18,4 +18,5 @@ public class cuenta {
     public int codigoEC;
     public int codigoCatalago;
     public int balance;
+    public String tipo;
 }
