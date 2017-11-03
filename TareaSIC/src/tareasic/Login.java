@@ -18,6 +18,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -53,6 +54,11 @@ public class Login extends javax.swing.JFrame {
         jbIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbIniciarMouseClicked(evt);
+            }
+        });
+        jbIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbIniciarActionPerformed(evt);
             }
         });
 
@@ -147,6 +153,10 @@ public class Login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jbIniciarMouseClicked
+
+    private void jbIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbIniciarActionPerformed
 
     /**
      * @param args the command line arguments

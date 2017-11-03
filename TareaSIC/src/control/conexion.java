@@ -24,7 +24,7 @@ public class conexion {
     
     public Connection conectar() {
         try {
-            conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/tareaSic", "postgres", "mb14008");
+            conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sic115", "sic115", "sic115");
             
             } catch (SQLException ex) {
             Logger.getLogger(cuenta.class.getName()).log(Level.SEVERE, null, ex);

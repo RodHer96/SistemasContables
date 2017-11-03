@@ -6,6 +6,8 @@
 package tareasic;
 
 import control.cuentaTMC;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 
@@ -20,7 +22,7 @@ public cuentaTMC cuentaTM=new cuentaTMC();
      */
     public acuenta() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -34,12 +36,13 @@ public cuentaTMC cuentaTM=new cuentaTMC();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cbxclasificacion = new javax.swing.JComboBox<>();
+        cbxclasificacion = new javax.swing.JComboBox<String>();
         jtnombrec = new javax.swing.JTextField();
         jbAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablacuentas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,9 +50,20 @@ public cuentaTMC cuentaTM=new cuentaTMC();
 
         jLabel2.setText("Clasificacion:");
 
-        cbxclasificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Contraactivo", "Pasivo", "Capital", "Ingreso", "Costo", "Gasto" }));
+        cbxclasificacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Contraactivo", "Pasivo", "Capital", "Ingreso", "Costo", "Gasto" }));
 
-        jbAgregar.setText("Agregar cuenta");
+        jtnombrec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtnombrecActionPerformed(evt);
+            }
+        });
+
+        jbAgregar.setText("Agregar Cuenta");
+        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarActionPerformed(evt);
+            }
+        });
 
         tablacuentas.setModel(cuentaTM);
         jScrollPane1.setViewportView(tablacuentas);
@@ -58,6 +72,13 @@ public cuentaTMC cuentaTM=new cuentaTMC();
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jbEliminar.setText("Eliminar Cuenta");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
             }
         });
 
@@ -77,13 +98,15 @@ public cuentaTMC cuentaTM=new cuentaTMC();
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtnombrec, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxclasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbxclasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jbAgregar)
+                                        .addGap(71, 71, 71)
+                                        .addComponent(jbEliminar))))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 103, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(jbAgregar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(236, 499, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addContainerGap())
         );
@@ -100,14 +123,18 @@ public cuentaTMC cuentaTM=new cuentaTMC();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(cbxclasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbAgregar)
-                .addGap(23, 23, 23))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbAgregar)
+                    .addComponent(jbEliminar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
+
+        jtnombrec.getAccessibleContext().setAccessibleName("nombreCuenta");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -121,6 +148,18 @@ public cuentaTMC cuentaTM=new cuentaTMC();
         ia.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jtnombrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtnombrecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtnombrecActionPerformed
+
+    private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAgregarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +203,7 @@ public cuentaTMC cuentaTM=new cuentaTMC();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jbAgregar;
+    public javax.swing.JButton jbEliminar;
     public javax.swing.JTextField jtnombrec;
     public javax.swing.JTable tablacuentas;
     // End of variables declaration//GEN-END:variables

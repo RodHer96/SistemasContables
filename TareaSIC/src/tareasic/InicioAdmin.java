@@ -19,6 +19,7 @@ public class InicioAdmin extends javax.swing.JFrame {
      */
     public InicioAdmin() {
         initComponents();
+        this.setLocationRelativeTo(null);
         
         
     }
@@ -189,6 +190,8 @@ public class InicioAdmin extends javax.swing.JFrame {
         acuentacontrol acc=new acuentacontrol(ac,conex.conectar());
         acc.inicializarTabla();
         acc.consultaInicial();
+        acuenta acs=new acuenta();
+        ac.setVisible(true);
         dispose();
     }//GEN-LAST:event_jbcatalogoMouseClicked
 

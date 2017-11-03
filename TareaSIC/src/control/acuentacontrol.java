@@ -33,6 +33,7 @@ public class acuentacontrol implements ActionListener{
        this.agregarcuenta=agregarcuenta;
        this.con=con;
        this.agregarcuenta.jbAgregar.addActionListener(this);  
+       this.agregarcuenta.jbEliminar.addActionListener(this);  
    }
    
    public void inicializarAcuenta(){
@@ -42,7 +43,7 @@ public class acuentacontrol implements ActionListener{
    @Override
     public void actionPerformed(ActionEvent e) {
        
-       
+      if(e.getSource() == agregarcuenta.jbAgregar){
        try{
           
        ct.clasficacion=agregarcuenta.cbxclasificacion.getSelectedIndex()+1;
@@ -78,15 +79,16 @@ public class acuentacontrol implements ActionListener{
     pS.setInt(2, ct.clasficacion);
     pS.setInt(3,ct.balance);
     pS.execute();
+    agregarcuenta.tablacuentas.repaint();
     consultaInicial();
     agregarcuenta.jtnombrec.setText("");
        }catch(SQLException ex){
-           JOptionPane.showMessageDialog(agregarcuenta,"Error al guardad por facovr intente de nuevo");
+           JOptionPane.showMessageDialog(agregarcuenta,"Error al guardar, por favor intente de nuevo");
            ex.printStackTrace();
        }
-   
+       agregarcuenta.tablacuentas.repaint();
     }   
-   
+   }
 public void inicializarTabla(){
     TableColumnModel cuentaTM1=new DefaultTableColumnModel();
     for(int i =0;i<2;i++ ){
@@ -144,6 +146,27 @@ public void inicializarTabla(){
         catch(SQLException ex){
             JOptionPane.showMessageDialog(agregarcuenta, "Error al recuperar los datos de la base");
         }
+      agregarcuenta.tablacuentas.repaint();
+
     }
-    
+    public void jbEliminarActionPerformed(ActionEvent e) {
+       if(e.getSource() == agregarcuenta.jbEliminar){
+        cuenta c = new cuenta();
+            PreparedStatement statement =null;
+            String nombre=agregarcuenta.jtnombrec.getText().toString();
+            String sentenciaSql="DELETE FROM cuenta where nombre=?";
+            try{
+                PreparedStatement prep = con.prepareStatement(sentenciaSql);
+                prep.setString(1, nombre);
+                prep.executeUpdate();
+                JOptionPane.showMessageDialog(agregarcuenta, "Eliminó correctamente "+ nombre); 
+                consultaInicial();
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(agregarcuenta,"Error al eliminar el producto " + nombre);
+            ex.printStackTrace();
+        }
+        agregarcuenta.tablacuentas.repaint();   
+       }   
+    }
+ 
 }
