@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/crist/Desktop/TareaSIC/src/control/conexion.java</file>
             <file>file:/C:/Users/crist/Desktop/TareaSIC/src/tareasic/TareaSIC.java</file>
             <file>file:/C:/Users/crist/Desktop/TareaSIC/src/tareasic/InicioAdmin.java</file>
+            <file>file:/C:/Users/crist/Desktop/TareaSIC/src/control/opcionesControl.java</file>
             <file>file:/C:/Users/crist/Desktop/TareaSIC/src/tareasic/acuenta.java</file>
+            <file>file:/C:/Users/crist/Desktop/TareaSIC/src/tareasic/vistaOpciones.java</file>
+            <file>file:/C:/Users/crist/Desktop/TareaSIC/src/control/tablaRTM.java</file>
             <file>file:/C:/Users/crist/Desktop/TareaSIC/src/control/acuentacontrol.java</file>
+            <file>file:/C:/Users/crist/Desktop/TareaSIC/src/tareasic/rtransaccion.java</file>
             <file>file:/C:/Users/crist/Desktop/TareaSIC/src/control/cuentaTMC.java</file>
             <file>file:/C:/Users/crist/Desktop/TareaSIC/src/models/cuenta.java</file>
         </group>
